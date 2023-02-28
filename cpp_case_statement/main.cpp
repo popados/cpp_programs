@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <windows.h>
 using namespace std;
 
 void myFunction() {
@@ -8,6 +9,20 @@ void myFunction() {
     std::cout << name << std::endl;
 
 }
+
+
+class Card {
+    private:
+
+    
+    public:
+        char name[16];
+        int attack;
+        int health;
+        bool isCreature;
+        bool isSpell;
+
+};
 
 
 int main(){

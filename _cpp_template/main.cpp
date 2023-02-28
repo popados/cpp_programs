@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+using namespace std;
 
 void myFunction() {
     std::string name = "function name";
