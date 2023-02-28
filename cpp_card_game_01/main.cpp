@@ -53,8 +53,8 @@ class CardCreator {
 
 };
 
-void userSelection (CardCreator machine) {
-    cout << "enter 1, 2, or 3. any other key will exit." << endl; 
+void userStartSelection (CardCreator machine) {
+    cout << "enter 1 for new file, 2 for existing file, or 3 . any other key will exit." << endl; 
     int userInput;
     cin >> userInput;
     CardCreator machine1;
@@ -67,24 +67,24 @@ void userSelection (CardCreator machine) {
             break;
         case 2:
             cout << "pressed 2" << endl;
+
             break;
         case 3:
             cout << "pressed 3" << endl;
             break;
         default:
             cout << "no option selected" << endl;
+
             break;
     }
 }
 
+void cardCreationInput () {
 
-int main(){
-    std::cout << "hello world" << std::endl;
-    myFunction();
     CardCreator machine;
     machine.fileCheck();
     machine.cards_to_create = 0;
-    userSelection(machine);
+    userStartSelection(machine);
     cout << "is this random? " << machine.cards_to_create << endl;
     machine.CardsToCreate();
     while(machine.cards_to_create > 0) {
@@ -93,6 +93,17 @@ int main(){
         //create cards
         //ask name, atk, hp, mana, iscreature, iscastable.
     }
+    
+    
+    
+    }
+
+int main(){
+    std::cout << "hello world" << std::endl;
+    myFunction();
+    cardCreationInput();
+
+   
 
 
 }
