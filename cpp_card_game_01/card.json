@@ -1,0 +1,11 @@
+{"name":"lord imp","Attack":"1"}{"name":"lord knight","Attack":"2"}
+
+
+[{"card:"
+    {"name":"value"}
+        {"stats":
+            {
+            "atk": "value", 
+            "hp": "value", 
+            "mana": "value"}
+}}]

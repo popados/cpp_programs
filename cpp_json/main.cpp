@@ -33,22 +33,7 @@ int main(int argc, char* argv[]) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+  
     fprintf(file, PERSON_FORMAT_OUT, p1.name, p1.age, p1.gender);
     fseek(file, 0, SEEK_SET);
     fscanf(file, PERSON_FORMAT_IN, p1.name, &p1.age, &p1.gender);

@@ -9,11 +9,33 @@ void myFunction() {
 
 }
 
-void createFile() {
+ofstream createFile() {
     ofstream MyFile("card.json", ios_base::app);
-
+    return MyFile;
 }
 
+
+void createFileFunc() {
+
+    int userInput;
+    cin >> userInput;
+
+    switch(userInput) {
+        case 1:
+        createFile();
+        cout << "," << endl;
+            break;
+        case 2: 
+        cout << "end" << endl;
+        cout << "]" << endl;
+            break;
+        default:
+            cout << "default end" << endl;
+            cout << "]" << endl;       
+            break;
+    }
+
+}
 
 class CardCreator {
     private:
@@ -73,7 +95,6 @@ class CardCreator {
                 return hp;
             }
 
-
         int getCardMana(){
                 cout << "enter card mana value: " ;
                 cin >> mana;
@@ -91,8 +112,30 @@ class CardCreator {
 
         }
 
-        void saveCard(atk,hp,mana,name) {
-            MyFile << "{" << "\"" << "name" << "\"" << ":\"" << name << "\",\"" << "Attack"  << "\"" << ":\"" << atk_pow << "\"}" ;
+        void saveCard(string cardname, int cardatk,int cardhp,int cardmana) {
+
+            //createFile();
+            //[https://www.rfc-editor.org/rfc/rfc8259]
+            //array of name, stats, ?????????????
+            // [{"card:"{"name":"value"}{"stats":{"atk": "value", "hp": "value", "mana": "value"}}}]
+            ofstream MyFile("card.json", ios_base::app);
+            MyFile 
+                << "{" 
+                << "\""  // this is quote
+                << "name" // key
+                << "\""  // quote
+                << ":" //colon
+                << "\"" //quote
+                << name  // value
+                << "\""  //quote
+                << "," // comma
+                << "\"" // quote
+                << "Attack"  // key
+                << "\"" // quote
+                << ":" //colon
+                << "\""  //quote
+                << atk //value
+                << "\"}" ;
 
             int userInput;
             cin >> userInput;
@@ -100,20 +143,21 @@ class CardCreator {
             switch(userInput) {
                 case 1:
                 cout << "continue" << endl;
-                MyFile << "," << endl;
+                cout << "," << endl;
                  break;
                 case 2: 
                 cout << "end" << endl;
-                MyFile << "]" << endl;
+                cout << "]" << endl;
                  break;
                 default:
                     cout << "default end" << endl;
-                    MyFile << "]" << endl;       
+                    cout << "]" << endl;       
                     break;
             }
 
 };
 
+};
 
 void cardCreationInput () {
     CardCreator machine;
@@ -125,10 +169,11 @@ void cardCreationInput () {
 
     for (int i = 0; i < machine.cards_to_create; i++) {
         cout << "cards to create: " << machine.cards_to_create << endl;
-        machine.getCardName();
-        machine.getCardAtk();
-        machine.getCardHealth();
-        machine.getCardMana();
+        machine.name = machine.getCardName();
+        machine.atk = machine.getCardAtk();
+        machine.hp = machine.getCardHealth();
+        machine.mana = machine.getCardMana();
+        machine.saveCard(machine.name, machine.atk, machine.hp,machine.mana);
     }
 
     // while(machine.cards_to_create > 0) {
@@ -144,7 +189,7 @@ void cardCreationInput () {
 
     // }    
     
-}
+};
 
 
 
@@ -158,12 +203,12 @@ void userStartSelection (CardCreator machine) {
     switch(userInput) {
         case 1:
             cout << "pressed 1" << endl;
+            createFileFunc();
             cardCreationInput();
             //return machine1.cards_to_create;
             break;
         case 2:
             cout << "pressed 2" << endl;
-
             break;
         case 3:
             cout << "pressed 3" << endl;
@@ -186,8 +231,6 @@ int main(){
     userStartSelection(machine);
     // machine.name;
     // getline(cin, machine.name);
-    // cout << machine.name;
-   
-
+    cout << "end of program" << endl;
 
 }
