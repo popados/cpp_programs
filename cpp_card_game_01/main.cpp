@@ -16,7 +16,7 @@ ofstream createFile() {
 
 
 void createFileFunc() {
-
+    //cout opening file/looking for object??
     int userInput;
     cin >> userInput;
     ofstream MyFile = createFile();
@@ -130,6 +130,11 @@ class CardCreator {
                 << "\""  //quote
                 << "," // comma
                 << "\"" // quote
+                << "stats" //key
+                << "\"" // quote
+                << ":" // colon
+                << "{" //bracket
+                << "\"" // quote
                 << "Attack"  // key
                 << "\"" // quote
                 << ":" //colon
@@ -144,6 +149,15 @@ class CardCreator {
                 << "\""  //quote
                 << hp //value
                 << "\"" //quote
+                << "," // comma
+                << "\"" // quote
+                << "mana"  // key
+                << "\"" // quote
+                << ":" //colon
+                << "\""  //quote
+                << mana //value
+                << "\"" //quote
+                << "}" //bracket
                 << "}" //bracket
                 ;
             cout << "hit 1 to continue to next card; 2 to end and add ']' : ";
