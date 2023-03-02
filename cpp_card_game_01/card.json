@@ -8,4 +8,6 @@
             "atk": "value", 
             "hp": "value", 
             "mana": "value"}
-}}]
+}}][
+{"name":"lord knight","Attack":"2"},
+{"name":"quire","Attack":"1"},

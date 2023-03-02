@@ -19,11 +19,11 @@ void createFileFunc() {
 
     int userInput;
     cin >> userInput;
+    ofstream MyFile = createFile();
 
     switch(userInput) {
         case 1:
-        createFile();
-        cout << "," << endl;
+        MyFile << "[" ;
             break;
         case 2: 
         cout << "end" << endl;
@@ -120,7 +120,7 @@ class CardCreator {
             // [{"card:"{"name":"value"}{"stats":{"atk": "value", "hp": "value", "mana": "value"}}}]
             ofstream MyFile("card.json", ios_base::app);
             MyFile 
-                << "{" 
+                << "{" //bracket
                 << "\""  // this is quote
                 << "name" // key
                 << "\""  // quote
@@ -135,23 +135,33 @@ class CardCreator {
                 << ":" //colon
                 << "\""  //quote
                 << atk //value
-                << "\"}" ;
-
+                << "\"" //quote
+                << "," // comma
+                << "\"" // quote
+                << "health"  // key
+                << "\"" // quote
+                << ":" //colon
+                << "\""  //quote
+                << hp //value
+                << "\"" //quote
+                << "}" //bracket
+                ;
+            cout << "hit 1 to continue to next card; 2 to end and add ']' : ";
             int userInput;
             cin >> userInput;
 
             switch(userInput) {
                 case 1:
                 cout << "continue" << endl;
-                cout << "," << endl;
+                MyFile << "," << endl;
                  break;
                 case 2: 
                 cout << "end" << endl;
-                cout << "]" << endl;
+                MyFile << "]" << endl;
                  break;
                 default:
                     cout << "default end" << endl;
-                    cout << "]" << endl;       
+                    MyFile << "]" << endl;       
                     break;
             }
 
@@ -162,7 +172,6 @@ class CardCreator {
 void cardCreationInput () {
     CardCreator machine;
     machine.cards_to_create = 0;
-    machine.name;
     cout << "is this random? " << machine.cards_to_create << endl;
     cout << "cards left to create: " << machine.cards_to_create << endl;
     machine.CardsToCreate();
