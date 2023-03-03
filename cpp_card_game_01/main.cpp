@@ -17,13 +17,16 @@ ofstream createFile() {
 
 void createFileFunc() {
     //cout opening file/looking for object??
+    cout << "press 1" << endl;
     int userInput;
     cin >> userInput;
     ofstream MyFile = createFile();
 
     switch(userInput) {
         case 1:
-        MyFile << "[" ;
+        //MyFile.seekg(0, MyFile.end);
+        MyFile.seekp(MyFile.end);
+        //MyFile << "" ;
             break;
         case 2: 
         cout << "end" << endl;
